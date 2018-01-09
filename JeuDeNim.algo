@@ -1,0 +1,84 @@
+ALGORITHME jeu_de_nim
+
+//But : Ecrire un algorithme qui permet à deux joueurs de jouer au jeu de nim
+//Principe : Demander au joueur combien d'allumette il veut retirer, afficher le nombre d'allumette restante et terminer le jeu lorsqu'aucune allumette est restante.
+
+VAR 
+	nbalmt, choix, victoire : entier
+
+DEBUT 
+
+	//Initialisation des variables 
+	nbalmt <- 21
+	choix <- 1
+	victoire <- 0
+	ECRIRE "Bienvenue dans le jeu de Nim, pour gagner, il ne faut pas retirer la dernière allumette."
+	REPETER 
+		ECRIRE "C'est le tour de Joueur 1 !"
+		ECRIRE "Enlevez une, deux ou trois allumette(s)"
+		LIRE choix
+		nbalmt <- nbalmt - choix
+		SI (nbalmt <= 0) ALORS
+			ECRIRE "Le joueur 1 a perdu !"
+			victoire <- 2
+		SINON
+			ECRIRE "Il reste ",nbalmt," allumette(s)."
+		FIN SI
+		SI (nbalmt > 0)
+			ECRIRE "C'est le tour de Joueur 2 !"
+			ECRIRE "Enlevez une, deux ou trois allumette(s)"
+			LIRE choix
+			nbalmt <- nbalmt - choix
+			SI (nbalmt <= 0) ALORS
+				ECRIRE "Le joueur 2 a perdu !"
+				victoire <- 1
+			SINON
+				ECRIRE "Il reste ",nbalmt," allumette(s)."
+			FIN SI
+		FIN SI
+	JUSQU'A (nbalmt <= 0)
+	ECRIRE "Victoire du joueur ",victoire," !"
+FIN
+
+
+Jeu d'essai :
+
+Bienvenue dans le jeu de Nim, pour gagner, il ne faut pas retirer la dernière allumette.
+
+C'est le tour de Joueur 1 ! //ECRIRE "C'est le tour de Joueur 1 !"
+Enlevez une, deux ou trois allumette(s) //ECRIRE "Enlevez une, deux ou trois allumette(s)"
+2 //LIRE choix
+Il reste 19 allumette(s). //ECRIRE "Il reste ",nbalmt," allumette(s)."
+C'est le tour de Joueur 2 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 16 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 13 allumette(s).
+C'est le tour de Joueur 2 !
+Enlevez une, deux ou trois allumette(s)
+1
+Il reste 12 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 9 allumette(s).
+C'est le tour de Joueur 2 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 6 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 3 allumette(s).
+C'est le tour de Joueur 2 !
+Enlevez une, deux ou trois allumette(s)
+2
+Il reste 1 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+1
+Le Joueur 1 a perdu ! //SI (nbalmt <= 0) ALORS ECRIRE "Le joueur 1 a perdu !"
+Victoire du Joueur 2 ! //ECRIRE "Victoire du joueur ",victoire," !"
