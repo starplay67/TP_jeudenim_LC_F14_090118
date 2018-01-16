@@ -12,30 +12,82 @@ DEBUT
 	nbalmt <- 21
 	choix <- 1
 	victoire <- 0
-	ECRIRE "Bienvenue dans le jeu de Nim, pour gagner, il ne faut pas retirer la dernière allumette."
-	REPETER 
-		ECRIRE "C'est le tour de Joueur 1 !"
-		ECRIRE "Enlevez une, deux ou trois allumette(s)"
+	ECRIRE "Bienvenue dans le jeu de Nim, pour gagner, il ne faut pas retirer la derniere alumette."
+	REPETER
+		ECRIRE "Tour de Joueur 1 !"
+		ECRIRE " "Enlevez une, deux ou trois allumettes"
 		LIRE choix
-		nbalmt <- nbalmt - choix
-		SI (nbalmt <= 0) ALORS
+		SI ((choix = 1) OU (choix =2) OU (choix=3)) ALORS
+		DEBUT
+			nbalmt <- nbalmt - choix
+			SI (nbalmt <= 1) ALORS
+			DEBUT
 			ECRIRE "Le joueur 1 a perdu !"
 			victoire <- 2
-		SINON
-			ECRIRE "Il reste ",nbalmt," allumette(s)."
+			FIN SI
+			SINON
+				ECRIRE "Il reste ',nbalmt,' allumettes."
 		FIN SI
-		SI (nbalmt > 0)
-			ECRIRE "C'est le tour de Joueur 2 !"
-			ECRIRE "Enlevez une, deux ou trois allumette(s)"
-			LIRE choix
+		SINON 
+			ECRIRE "Entree Invalide"
+		SI (nbalmt > 1) ALORS 
+		DEBUT
+			ECRIRE "Tour de CPU !"
+			choix <- ALEATOIRE(3)	
+			ECRIRE choix			
 			nbalmt <- nbalmt - choix
-			SI (nbalmt <= 0) ALORS
+			SI (nbalmt <= 1) ALORS
+			DEBUT
 				ECRIRE "Le joueur 2 a perdu !"
 				victoire <- 1
-			SINON
-				ECRIRE "Il reste ",nbalmt," allumette(s)."
 			FIN SI
+			SINON
+				ECRIRE "Il reste ',nbalmt,' allumettes."		
 		FIN SI
-	JUSQU'A (nbalmt <= 0)
-	ECRIRE "Victoire du joueur ",victoire," !"
+	JUSQU'A (nbalmt<=1)
+	ECRIRE "Victoire du joueur ',victoire,' !"
+	LIRE
 FIN
+
+
+Jeu d'essai :
+
+Bienvenue dans le jeu de Nim, pour gagner, il ne faut pas retirer la dernière allumette.
+
+C'est le tour de Joueur 1 ! //ECRIRE "C'est le tour de Joueur 1 !"
+Enlevez une, deux ou trois allumette(s) //ECRIRE "Enlevez une, deux ou trois allumette(s)"
+2 //LIRE choix
+Il reste 19 allumette(s). //ECRIRE "Il reste ",nbalmt," allumette(s)."
+C'est le tour de CPU !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 16 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 13 allumette(s).
+C'est le tour de CPU !
+Enlevez une, deux ou trois allumette(s)
+1
+Il reste 12 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 9 allumette(s).
+C'est le tour de CPU !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 6 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+3
+Il reste 3 allumette(s).
+C'est le tour de CPU !
+Enlevez une, deux ou trois allumette(s)
+2
+Il reste 1 allumette(s).
+C'est le tour de Joueur 1 !
+Enlevez une, deux ou trois allumette(s)
+1
+Le Joueur 1 a perdu ! //SI (nbalmt <= 0) ALOUS ECRIRE "Le joueur 1 a perdu !"
+Victoire du CPU ! //ECRIRE "Victoire du joueur ",victoire," !"

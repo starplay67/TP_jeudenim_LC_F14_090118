@@ -1,43 +1,57 @@
-ALGORITHME jeu_de_nim
+ALGOUITHME : jeu_de_nim
 
-//But : Ecrire un algorithme qui permet à deux joueurs de jouer au jeu de nim
+//But : Ecrire un algorithme qui permet a deux joueurs de jouer au jeu de nim
 //Principe : Demander au joueur combien d'allumette il veut retirer, afficher le nombre d'allumette restante et terminer le jeu lorsqu'aucune allumette est restante.
 
 VAR 
 	nbalmt, choix, victoire : entier
 
-DEBUT 
+DEBUT
 
 	//Initialisation des variables 
 	nbalmt <- 21
 	choix <- 1
 	victoire <- 0
-	ECRIRE "Bienvenue dans le jeu de Nim, pour gagner, il ne faut pas retirer la dernière allumette."
-	REPETER 
-		ECRIRE "C'est le tour de Joueur 1 !"
-		ECRIRE "Enlevez une, deux ou trois allumette(s)"
+	ECRIRE "Bienvenue dans le jeu de Nim, pour gagner, il ne faut pas retirer la derniere alumette."
+	REPETER
+		ECRIRE "Tour de Joueur 1 !"
+		ECRIRE " "Enlevez une, deux ou trois allumettes"
 		LIRE choix
-		nbalmt <- nbalmt - choix
-		SI (nbalmt <= 0) ALORS
-			ECRIRE "Le joueur 1 a perdu !"
-			victoire <- 2
-		SINON
-			ECRIRE "Il reste ",nbalmt," allumette(s)."
-		FIN SI
-		SI (nbalmt > 0)
-			ECRIRE "C'est le tour de Joueur 2 !"
-			ECRIRE "Enlevez une, deux ou trois allumette(s)"
-			LIRE choix
+		SI ((choix = 1) OU (choix =2) OU (choix=3)) ALORS
+		DEBUT
 			nbalmt <- nbalmt - choix
 			SI (nbalmt <= 0) ALORS
-				ECRIRE "Le joueur 2 a perdu !"
-				victoire <- 1
-			SINON
-				ECRIRE "Il reste ",nbalmt," allumette(s)."
+			DEBUT
+			ECRIRE "Le joueur 1 a perdu !"
+			victoire <- 2
 			FIN SI
+			SINON
+				ECRIRE "Il reste ',nbalmt,' allumettes."
 		FIN SI
-	JUSQU'A (nbalmt <= 0)
-	ECRIRE "Victoire du joueur ",victoire," !"
+		SINON 
+			ECRIRE "Entree Invalide"
+		SI (nbalmt > 0) ALORS 
+		DEBUT
+			ECRIRE "Tour de Joueur 2 !"
+			ECRIRE "Enlevez une, deux ou trois allumettes"
+			LIRE (choix)
+			SI ((choix = 1) OU (choix =2) OU (choix=3)) ALORS
+			DEBUT
+				nbalmt <- nbalmt - choix
+				SI (nbalmt <= 0) ALORS
+				DEBUT
+					ECRIRE "Le joueur 2 a perdu !"
+					victoire <- 1
+				FIN SI
+				SINON
+					ECRIRE "Il reste ',nbalmt,' allumettes."
+			FIN SI
+			SINON 
+				ECRIRE "Entree Invalide"
+		FIN SI
+	JUSQU'A (nbalmt<=0)
+	ECRIRE "Victoire du joueur ',victoire,' !"
+	LIRE
 FIN
 
 
@@ -80,5 +94,5 @@ Il reste 1 allumette(s).
 C'est le tour de Joueur 1 !
 Enlevez une, deux ou trois allumette(s)
 1
-Le Joueur 1 a perdu ! //SI (nbalmt <= 0) ALORS ECRIRE "Le joueur 1 a perdu !"
+Le Joueur 1 a perdu ! //SI (nbalmt <= 0) ALOUS ECRIRE "Le joueur 1 a perdu !"
 Victoire du Joueur 2 ! //ECRIRE "Victoire du joueur ",victoire," !"
